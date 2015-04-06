@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/ngmaloney/mbta-client.git
-  revision: 350afaea1ea06b73951de2467b611e505cd11774
+  revision: 3f0b185da36a22af1baf70444a3b9701b0654adf
   specs:
     mbta (0.0.1)
 
