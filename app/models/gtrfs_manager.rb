@@ -6,7 +6,7 @@ class GtrfsManager
 
   def initialize(feed_url)
     @feed_url = feed_url
-    @data = Net::HTTP.get(URI.parse(@feed_url))
+    @data = read_data
   end
 
   def all_positions
@@ -21,8 +21,15 @@ class GtrfsManager
     Transit_realtime::FeedMessage.decode(data)
   end
 
+  def read_data
+    Rails.cache.fetch("position_cache", expires_in: 1.minute) do
+      Net::HTTP.get(URI.parse(@feed_url))
+    end
+  end
+
+
   #TODO Pass data path and refresh
   def refresh
-    @data = Net::HTTP.get(URI.parse(feed_url))
+    @data = read_data
   end
 end
