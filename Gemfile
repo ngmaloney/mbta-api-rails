@@ -11,3 +11,5 @@ gem 'unicorn'
 gem 'faraday' #TODO remove me after mbta version bump
 gem 'gtfs-realtime-bindings'
 gem 'mbta', github: 'ngmaloney/mbta-client'
+
+gem 'rails_12factor', group: :production
